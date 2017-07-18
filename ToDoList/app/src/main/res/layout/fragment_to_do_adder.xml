@@ -20,7 +20,16 @@
         android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".8" />
+        android:layout_weight=".7" />
+
+
+    <!--Create a spinner object-->
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".1"/>
+
 
     <Button
         android:id="@+id/add"
@@ -28,5 +37,6 @@
         android:layout_height="0dip"
         android:layout_weight=".1"
         android:text="Add" />
+
 
 </LinearLayout>

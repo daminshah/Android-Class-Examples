@@ -1,4 +1,4 @@
-#Mon Jul 10 10:50:02 PDT 2017
-base.0=/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7
+#Tue Jul 18 13:16:45 PDT 2017
+base.0=/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7
 renamed.0=classes.dex
-file.0=/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex
+file.0=/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex

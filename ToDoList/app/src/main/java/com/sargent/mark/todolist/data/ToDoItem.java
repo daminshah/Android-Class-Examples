@@ -8,6 +8,8 @@ public class ToDoItem {
     private String description;
     private String dueDate;
 
+    private int done;
+
     public ToDoItem(String description, String dueDate) {
         this.description = description;
         this.dueDate = dueDate;
@@ -28,4 +30,7 @@ public class ToDoItem {
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
+
+
+
 }

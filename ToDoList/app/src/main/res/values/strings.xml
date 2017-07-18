@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ToDoList</string>
+    
+    <string name="category_menu">Select Category </string>
+
+    <!--Populate the spinner with user choices-->
+    <string-array name="todo_category">
+        <item>Finance</item>
+        <item>School</item>
+        <item>Work</item>
+        <item>Family</item>
+    </string-array>
+    <string-array name="todo_menu_category">
+        <item>All</item>
+        <item>Finance</item>
+        <item>School</item>
+        <item>Work</item>
+        <item>Family</item>
+    </string-array>
+
+
 </resources>

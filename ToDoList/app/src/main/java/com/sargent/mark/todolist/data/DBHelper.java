@@ -11,8 +11,8 @@ import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "items.db";
+    private static final int DATABASE_VERSION = 2;
+    private static final String DATABASE_NAME = "damin.db";
     private static final String TAG = "dbhelper";
 
     public DBHelper(Context context) {
@@ -24,7 +24,10 @@ public class DBHelper extends SQLiteOpenHelper{
         String queryString = "CREATE TABLE " + Contract.TABLE_TODO.TABLE_NAME + " ("+
                 Contract.TABLE_TODO._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL, " +
-                Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE + " DATE " + "); ";
+                Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE + " DATE, " +
+                Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + " TEXT NOT NULL" +
+                "); ";
+        //Added additional columns to database for category
 
         Log.d(TAG, "Create table SQL: " + queryString);
         db.execSQL(queryString);

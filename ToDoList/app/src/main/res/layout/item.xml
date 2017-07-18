@@ -11,11 +11,28 @@
         android:textSize="20dp"
         android:text="To do description"/>
 
+
+    <CheckBox
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"/>
+
     <TextView
         android:id="@+id/dueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:text="06-04-2017"/>
+
+
+    <!--Create a textview for displaying categories-->
+    <TextView
+        android:id="@+id/categorylist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"/>
+
+
 
 </LinearLayout>
