@@ -25,8 +25,9 @@ public class DBHelper extends SQLiteOpenHelper{
                 Contract.TABLE_TODO._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL, " +
                 Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE + " DATE, " +
-                Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + " TEXT NOT NULL" +
-                "); ";
+                Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + " TEXT NOT NULL," +
+                Contract.TABLE_TODO.COLUMN_NAME_DONE + " INTEGER NOT NULL " +
+                "DEFAULT 0); ";
         //Added additional columns to database for category
 
         Log.d(TAG, "Create table SQL: " + queryString);

@@ -38,18 +38,52 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       setContentView(R.layout.activity_main);
+       // setContentView(R.layout.fragment_to_do_adder)setContentView(R.layout.item);
+
+
         Log.d(TAG, "oncreate called in main activity");
         button = (FloatingActionButton) findViewById(R.id.addToDo);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
+                setContentView(R.layout.item);
                 AddToDoFragment frag = new AddToDoFragment();
                 frag.show(fm, "addtodofragment");
             }
         });
-        rv = (RecyclerView) findViewById(recyclerView);
+
+        //To save the state of checkbox
+//        final CheckBox checkBox=(CheckBox)findViewById(R.id.done);
+//
+//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        final SharedPreferences.Editor editor = preferences.edit();
+//        if(preferences.contains("checked") && preferences.getBoolean("checked",false) == true) {
+//            checkBox.setChecked(true);
+//        }else {
+//            checkBox.setChecked(false);
+//
+//        }
+//
+//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(checkBox.isChecked()) {
+//                    editor.putBoolean("checked", true);
+//                    editor.apply();
+//                }else{
+//                    editor.putBoolean("checked", false);
+//                    editor.apply();
+//                }
+//                editor.clear();
+//                editor.commit();
+//            }
+//
+//
+//        });
+
+            rv = (RecyclerView) findViewById(recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -82,6 +116,9 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
                 UpdateToDoFragment frag = UpdateToDoFragment.newInstance(year, month, day, description,category, id);
                 frag.show(fm, "updatetodofragment");
+
+
+
             }
         });
 
@@ -107,16 +144,16 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         }).attachToRecyclerView(rv);
     }
 
-//    protected static void updatetodostatus(int pos, long id, boolean done)
-//    {
-//        //helper = new DBHelper(this);
-//       SQLiteDatabase db = helper.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//        cv.put(Contract.TABLE_TODO.COLUMN_NAME_DONE, (done ? 1 : 0));
-//        db.update(Contract.TABLE_TODO.TABLE_NAME, cv,
-//                Contract.TABLE_TODO._ID + "=" + id, null);
-//
-//    }
+    protected static void updatetodostatus(int pos, long id, boolean done)
+    {
+        //helper = new DBHelper(this);
+       SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_DONE, (done ? 1 : 0));
+        db.update(Contract.TABLE_TODO.TABLE_NAME, cv,
+                Contract.TABLE_TODO._ID + "=" + id, null);
+
+    }
     @Override
     public void closeDialog(int year, int month, int day, String description, String category) {
         addToDo(db, description, formatDate(year, month, day),category);
@@ -159,13 +196,21 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     private int updateToDo(SQLiteDatabase db, int year, int month, int day, String description, String category, long id){
 
         String duedate = formatDate(year, month - 1, day);
+//        CheckBox checkBox = (CheckBox)findViewById(R.id.done);
+//        if(checkBox.isChecked())
+//        {
+//            checkBox.setChecked(true);
+//        }
 
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
         return db.update(Contract.TABLE_TODO.TABLE_NAME, cv, Contract.TABLE_TODO._ID + "=" + id, null);
-    }
+
+
+
+           }
 
     @Override
     public void closeUpdateDialog(int year, int month, int day, String description,String category, long id) {
@@ -173,6 +218,10 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         adapter.swapCursor(getAllItems(db));
     }
 
+
+    public void onCheckboxClicked(View view) {
+       
+    }
 
     //Create Menu for selecting a particular category
     @Override public boolean onCreateOptionsMenu(Menu menu) {

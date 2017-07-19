@@ -8,6 +8,8 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="20dp"
         android:text="To do description"/>
 
@@ -22,6 +24,9 @@
         android:id="@+id/dueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+
         android:textSize="14dp"
         android:text="06-04-2017"/>
 
@@ -31,8 +36,9 @@
         android:id="@+id/categorylist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="14dp"/>
-
 
 
 </LinearLayout>

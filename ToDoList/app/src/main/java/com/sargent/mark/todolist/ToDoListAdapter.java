@@ -24,7 +24,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
     private Cursor cursor;
     private ItemClickListener listener;
     private String TAG = "todolistadapter";
-    private CheckBox checkBox;
+   // private CheckBox checkBox;
   //  boolean done;
 
 
@@ -91,6 +91,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             descr = (TextView) view.findViewById(R.id.description);
             due = (TextView) view.findViewById(R.id.dueDate);
             cat = (TextView) view.findViewById(R.id.categorylist);
+            status=(CheckBox)view.findViewById(R.id.done);
             view.setOnClickListener(this);
         }
 
@@ -103,11 +104,33 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             description = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION));
 
             category = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY));
+            done=cursor.getInt(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DONE))==1;
             descr.setText(description);
             due.setText(duedate);
             cat.setText("Category: " + category);
             holder.itemView.setTag(id);
 
+            updatestatus();
+
+            status.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos=getAdapterPosition();
+
+                    done=!done;
+
+                    if(status.isChecked())
+                    {
+                        done=true;
+                    }
+                    else {
+                        done=false;
+                    }
+
+                    updatestatus();
+                    MainActivity.updatetodostatus(pos,id,done);
+                }
+            });
 
 //            checkBox.setOnClickListener(new View.OnClickListener() {
 //                @Override
