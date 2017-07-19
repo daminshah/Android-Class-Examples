@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
             @Override
             public void onClick(View v) {
                 FragmentManager fm = getSupportFragmentManager();
-                setContentView(R.layout.item);
                 AddToDoFragment frag = new AddToDoFragment();
                 frag.show(fm, "addtodofragment");
             }
