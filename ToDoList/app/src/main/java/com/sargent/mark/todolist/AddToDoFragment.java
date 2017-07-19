@@ -56,7 +56,7 @@ public class AddToDoFragment extends DialogFragment{
         // Apply the adapter to the spinner
         categories.setAdapter(adapter);
 
-
+        //ClickListener for Add Button
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

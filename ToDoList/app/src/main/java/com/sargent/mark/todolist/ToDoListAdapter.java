@@ -102,16 +102,18 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
 
             duedate = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE));
             description = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION));
-
+            //Get the values for category and boolean done using the cursor.getString
             category = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY));
             done=cursor.getInt(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DONE))==1;
             descr.setText(description);
             due.setText(duedate);
-            cat.setText("Category: " + category);
+
+            //Set the values of categories in a textview
+            cat.setText(category);
             holder.itemView.setTag(id);
 
             updatestatus();
-
+                //Checkbox clicklistener when the checkbox is checked and calls the updatestatus and updatetodostatus
             status.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -146,7 +148,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
 //            });
         }
 
-
+            //Method to strike through when a checkbox is checked
             private void updatestatus()
             {
                 if (done) {

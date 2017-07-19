@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp">
+
 
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="20dp"
-        android:text="To do description"/>
+        android:text="To do description"
+        android:textColor="#145be0"/>
 
 
     <CheckBox
@@ -38,7 +42,17 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="14dp"/>
+        android:textSize="14dp"
+        android:textStyle="italic"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="#145be0"
+        android:layout_marginBottom="1dp"/>
+
+    <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginRight="8dp"-->
 
 
 </LinearLayout>

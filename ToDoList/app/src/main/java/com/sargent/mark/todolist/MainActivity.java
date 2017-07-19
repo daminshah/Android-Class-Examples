@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
             }
         });
 
+
+
         //To save the state of checkbox
 //        final CheckBox checkBox=(CheckBox)findViewById(R.id.done);
 //
@@ -218,9 +220,9 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
 
 
-    public void onCheckboxClicked(View view) {
-       
-    }
+//    public void onCheckboxClicked(View view) {
+//
+//    }
 
     //Create Menu for selecting a particular category
     @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -230,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
         Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
          spinner.setOnItemSelectedListener(this);
-
+    //spinner.setOnClickListener();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.todo_menu_category, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
