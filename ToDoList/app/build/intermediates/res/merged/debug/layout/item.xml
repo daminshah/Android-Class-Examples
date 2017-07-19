@@ -18,11 +18,17 @@
         android:textColor="#145be0"/>
 
 
-    <CheckBox
+
+    <!---->
+    <!--Added Button Functionality-->
+    <Button
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"/>
+        android:layout_gravity="right"
+        android:background="#145be0"
+        android:textColor="#f9f9f4"/>
+
 
     <TextView
         android:id="@+id/dueDate"

@@ -197,11 +197,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     private int updateToDo(SQLiteDatabase db, int year, int month, int day, String description, String category, long id){
 
         String duedate = formatDate(year, month - 1, day);
-//        CheckBox checkBox = (CheckBox)findViewById(R.id.done);
-//        if(checkBox.isChecked())
-//        {
-//            checkBox.setChecked(true);
-//        }
+
 
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
@@ -234,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
          spinner.setOnItemSelectedListener(this);
     //spinner.setOnClickListener();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.todo_menu_category, android.R.layout.simple_spinner_item);
+       // Log.d(TAG, " Adapter selected------------------ " + adapter);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Set the adapter
@@ -249,13 +246,14 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
             String optionSelected=parent.getItemAtPosition(position).toString();
 
-        Log.d(TAG, " Menu item selected------------------ " + optionSelected);
 
         if ("All".equalsIgnoreCase(optionSelected)) {
             adapter.swapCursor(getAllItems(db));
         }
         else {
             adapter.swapCursor(getOptionSelected(db, optionSelected));
+            Log.d(TAG, " Menu item selected------------------ " + optionSelected);
+
         }
 
     }
@@ -265,7 +263,12 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         // Another interface callback
     }
 
+
+    //Gets the items from database for the items selected from the menu
     private Cursor getOptionSelected(SQLiteDatabase db, String category) {
+
+        Log.d(TAG, " Category selected------------------ " + category);
+
         return db.query(Contract.TABLE_TODO.TABLE_NAME,
                 null,
                 Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + "='" + category + "'",

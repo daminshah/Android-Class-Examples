@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.sargent.mark.todolist.data.Contract;
@@ -83,15 +83,17 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
 
         boolean done;
 
-        CheckBox status;
-
+      //  CheckBox status;
+        Button status;
+     //   status.setText("Done");
 
         ItemHolder(View view) {
             super(view);
             descr = (TextView) view.findViewById(R.id.description);
             due = (TextView) view.findViewById(R.id.dueDate);
             cat = (TextView) view.findViewById(R.id.categorylist);
-            status=(CheckBox)view.findViewById(R.id.done);
+          //  status=(CheckBox)view.findViewById(R.id.done);
+            status=(Button)view.findViewById(R.id.done);
             view.setOnClickListener(this);
         }
 
@@ -113,39 +115,38 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
             holder.itemView.setTag(id);
 
             updatestatus();
-                //Checkbox clicklistener when the checkbox is checked and calls the updatestatus and updatetodostatus
+
+                //Button clicklistener when the button is clicked,sets the text for the button  and calls the updatestatus and updatetodostatus
             status.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos=getAdapterPosition();
 
                     done=!done;
-
-                    if(status.isChecked())
+                    Log.d(TAG,"Value is-------"+done);
+                    if (done==true)
                     {
-                        done=true;
+                        status.setText("UnDone");
                     }
                     else {
-                        done=false;
+                        status.setText("Done");
+
                     }
+
+//                    if(status.isChecked())
+//                    {
+//                        done=true;
+//                    }
+//                    else {
+//                        done=false;
+//                    }
 
                     updatestatus();
                     MainActivity.updatetodostatus(pos,id,done);
                 }
             });
 
-//            checkBox.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int pos=getAdapterPosition();
 //
-//                    done=!done;
-//
-//                    updatestatus();
-//                    MainActivity.updatetodostatus(pos,id,done);
-//
-//                }
-//            });
         }
 
             //Method to strike through when a checkbox is checked
@@ -158,6 +159,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
                             due.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     cat.setPaintFlags(
                             cat.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+                    status.setText("Undone");
                 } else {
                     descr.setPaintFlags(
                             descr.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
@@ -165,6 +168,8 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
                             due.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
                     cat.setPaintFlags(
                             cat.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+
+                    status.setText("Done");
                 }
 
             }

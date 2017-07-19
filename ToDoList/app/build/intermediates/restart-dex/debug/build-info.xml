@@ -6,30 +6,33 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1500437538736"
+    timestamp="1500451409497"
     token="4179423408144816274"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="406" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="57" />
     <task
         name="verifier"
-        duration="0" />
+        duration="5" />
 
+    <artifact
+        location="/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
     <artifact
         location="/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/outputs/apk/app-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1500429775961"
+        timestamp="1500450724280"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
@@ -70,16 +73,11 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1500436972344"
+        timestamp="1500451409497"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1500437538736"
-        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/daminshah/Desktop/Clg/Summer/5540/Hw-2/Android-Class-Examples/ToDoList/app/build/outputs/apk/app-debug.apk"
             type="SPLIT_MAIN" />
